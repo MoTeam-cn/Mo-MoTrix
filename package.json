@@ -1,13 +1,13 @@
 {
-  "name": "Motrix",
-  "version": "1.8.19",
+  "name": "Mo-Motrix",
+  "version": "1.8.20",
   "description": "A full-featured download manager",
   "homepage": "https://motrix.app",
   "author": {
-    "name": "Dr_rOot",
-    "email": "agalwood.net@gmail.com"
+    "name": "XiaoMo",
+    "email": "moteam.org@gmail.com"
   },
-  "copyright": "Copyright© Dr_rOot",
+  "copyright": "Copyright© XiaoMo",
   "license": "MIT",
   "main": "./dist/electron/main.js",
   "repository": {
