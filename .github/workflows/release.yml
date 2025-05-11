@@ -31,16 +31,6 @@ jobs:
           ELECTRON_MIRROR: https://npmmirror.com/mirrors/electron/
           SASS_BINARY_SITE: https://npmmirror.com/mirrors/node-sass/
 
-      - name: Install Snapcraft
-        uses: samuelmeuli/action-snapcraft@v2
-        if: startsWith(matrix.os, 'ubuntu')
-        env:
-          SNAPCRAFT_STORE_CREDENTIALS: ${{ secrets.snapcraft_token }}
-
-      - name: Test Snapcraft
-        if: startsWith(matrix.os, 'ubuntu')
-        run: snapcraft --help
-
       - name: Build/release Electron app
         uses: motrixapp/action-electron-builder@v2
         with:
@@ -52,7 +42,6 @@ jobs:
           release: ${{ vars.skip_publish != 'true' }}
         env:
           ELECTRON_MIRROR: https://npmmirror.com/mirrors/electron/
-          SNAPCRAFT_STORE_CREDENTIALS: ${{ secrets.snapcraft_token }}
           TEAM_ID: ${{ secrets.team_id }}
           APPLE_ID: ${{ secrets.apple_id }}
           APPLE_APP_SPECIFIC_PASSWORD: ${{ secrets.apple_app_specific_password }}
