@@ -186,7 +186,9 @@
       {
         "provider": "github",
         "owner": "MoTeam-cn",
-        "repo": "Mo-MoTrix"
+        "repo": "Mo-MoTrix",
+        "releaseType": "release",
+        "force": true
       }
     ]
   }
