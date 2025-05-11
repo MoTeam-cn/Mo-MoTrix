@@ -191,7 +191,7 @@
     "publish": [
       {
         "provider": "github",
-        "owner": "XiaoMo",
+        "owner": "MoTeam-cn",
         "repo": "Mo-MoTrix"
       }
     ]
