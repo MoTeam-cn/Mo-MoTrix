@@ -19,10 +19,16 @@ jobs:
       - name: Check out Git repository
         uses: actions/checkout@v3
 
-      - name: Install Node.js, NPM and Yarn
+      - name: Setup Node.js and package mirrors
         uses: actions/setup-node@v3
         with:
           node-version: 18
+        env:
+          ELECTRON_MIRROR: https://npmmirror.com/mirrors/electron/
+          SASS_BINARY_SITE: https://npmmirror.com/mirrors/node-sass/
+        run: |
+          npm config set registry https://registry.npmmirror.com
+          yarn config set registry https://registry.npmmirror.com
 
       - name: Install Snapcraft
         uses: samuelmeuli/action-snapcraft@v2
@@ -52,6 +58,7 @@ jobs:
           # release the app after building
           release: ${{ vars.skip_publish != 'true' }}
         env:
+          ELECTRON_MIRROR: https://npmmirror.com/mirrors/electron/
           # Snapcraft
           SNAPCRAFT_STORE_CREDENTIALS: ${{ secrets.snapcraft_token }}
           # macOS notarization
