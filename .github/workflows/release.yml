@@ -2,9 +2,8 @@ name: Build/release
 
 on:
   push:
-    branches: [ master ]
-  pull_request:
-    branches: [ master ]
+    tags:
+      - 'v*'
 
 jobs:
   release:
@@ -46,7 +45,8 @@ jobs:
         uses: motrixapp/action-electron-builder@v2
         with:
           build_script_name: 'build:github'
-          github_token: ${{ secrets.github_token }}
+          # 使用 personal access token 替代默认的 GITHUB_TOKEN
+          github_token: ${{ secrets.GH_TOKEN }}
           mac_certs: ${{ secrets.mac_certs }}
           mac_certs_password: ${{ secrets.mac_certs_password }}
           release: ${{ vars.skip_publish != 'true' }}
