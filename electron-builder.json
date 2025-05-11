@@ -182,9 +182,13 @@
         ]
       }
     },
-    "publish": {
-      "provider": "github",
-      "owner": "MoTeam-cn",
-      "repo": "Mo-MoTrix"
-    }
+    "publish": [
+      {
+        "provider": "github",
+        "owner": "MoTeam-cn",
+        "repo": "Mo-MoTrix",
+        "private": false,
+        "releaseType": "release"
+      }
+    ]
   }
